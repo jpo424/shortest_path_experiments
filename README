@@ -1,5 +1,5 @@
 Application that demos a number of single-source shortest path algorithms and recursively finds their breaking points.
-It features a random graph generator and writes both inpu tna doutput to file.
+It features a random graph generator and writes both input and output to file.
 
 
 
