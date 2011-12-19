@@ -1,0 +1,56 @@
+Application that demos a number of single-source shortest path algorithms and recursively finds their breaking points.
+It features a random graph generator and writes both inpu tna doutput to file.
+
+
+
+SYSTEM REQUIREMENTS:
+ - a Ruby interpreter. I used version 1.9.2, but I dont believe any of the code has a particular dependence on 1.9.2. 
+ - rgl(Ruby Gtaphing Library) Gem
+ - pqueue gem
+ - or you can just do a "bundle install" from top directory
+
+ Code can be executed in 2 ways:
+  - (command line) ruby <file_name.rb>
+  
+  - IRB(interactive ruby)
+    - Navigate to this project's directory
+    - run: irb -I ./ (this starts a interactive ruby session and add the project to the load path)
+ 
+ HOW TO RUN:
+ 
+ There are a few things the app can do. Firstly, all tasks can be started from Driver.rb.
+ 
+ - To Find the Breaking Point of an algorithm:
+ 
+ From Command Line: 
+    ruby driver.rb break <shortest_path_with_topsort | dijkstra | bellman_ford> time_limit(optional integer arg)
+    
+  From irb(example):
+    irb -I ./
+    require 'driver'
+    driver = Driver.new(:dijkstra)
+    driver.find_breaking_point
+    driver.find_breaking_point(2)
+      
+    example: ruby driver.rb break bellman_ford 2
+    This will exercise the algorithm against graphs and different sizes, will print out the current graph size it is testing,
+    and ultimately return the graph size that cause the time_limit ti expire(breaking point) 5a and 5b satisfied
+    
+  - To demo all the algorithms and produce file versions of graphs and algorithm outputs
+  
+  From Command Line:
+    ruby driver.rb demo_all <directory for output>
+    This will generate 3 graphs that work for all algorithms, write them to file, executes all algorithms on each graph,
+    and produces file output from each algorithm for each graph. The output gets written to directory of arg 2
+    
+  From irb(example):
+    irb -I ./
+    require 'driver'
+    Driver.run_demos("/users/laura/bad_students",[500,1000,1500]) (where the array is an array of graph sizes...optional, will use default if blank)
+    
+    
+    
+  NOTES ON APP STRUCUTRE:
+   - driver.rb is the main class
+   - the algorithms and graph folders is where most of the code is including the graph generators and algorithms
+   - the WeightedDirectedGraph class is an extension of a structure in the rgl library.

@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    pqueue (2.0.2)
+    rake (0.9.2.2)
+    rgl (0.4.0)
+      rake
+      stream (>= 0.5)
+    stream (0.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pqueue
+  rgl
